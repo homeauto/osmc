@@ -213,7 +213,7 @@ then
 	echo "Depends: ${1}-mediacenter-osmc (=${VERSION_NUM})" >> files-debug/DEBIAN/control
 	pushd src/xbmc-*
 	install_patch "../../patches" "all"
-	test "$1" == atv && install_patch "../../patches" "atv"
+#	test "$1" == atv && install_patch "../../patches" "atv"
 	test "$1" == pc && install_patch "../../patches" "pc"
 	if [ "$1" == "rbp1" ] || [ "$1" == "rbp2" ]
 	then
