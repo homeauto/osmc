@@ -22,6 +22,7 @@ if [ $? != 0 ]; then echo -e "Error fetching Kodi source" && exit 1; fi
 # Build in native environment
 BUILD_OPTS=$BUILD_OPTION_DEFAULTS
 BUILD_OPTS=$(($BUILD_OPTS - $BUILD_OPTION_USE_CCACHE))
+export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-armhf/jre/lib/arm/jli:$LD_LIBRARY_PATH
 if [ "$1" == "rbp1" ] || [ "$1" == "rbp2" ] || [ "$1" == "vero" ] || [ "$1" == "vero2" ] || [ "$1" == "vero3" ]
 then
     BUILD_OPTS=$(($BUILD_OPTS + $BUILD_OPTION_NEEDS_SWAP))
