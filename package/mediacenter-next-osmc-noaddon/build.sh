@@ -505,11 +505,12 @@ then
 	cp patches/${1}-watchdog ${out}/usr/bin/mediacenter
 	cp patches/${1}-advancedsettings.xml ${out}/usr/share/kodi/system/advancedsettings.xml
 	chmod +x ${out}/usr/bin/mediacenter
+	DATE=`date +%Y-%m-%d`
 	test "$1" == vero && cp patches/${1}-hdmi-trace ${out}/usr/bin/hdmi-trace && chmod +x ${out}/usr/bin/hdmi-trace
 	fix_arch_ctl "files/DEBIAN/control"
 	fix_arch_ctl "files-debug/DEBIAN/control"
-	dpkg_build files/ ${1}-mediacenter-osmc.deb
-	dpkg_build files-debug/ ${1}-mediacenter-debug-osmc.deb
+	dpkg_build files/ ${1}-mediacenter-osmc-$DATE.deb
+	dpkg_build files-debug/ ${1}-mediacenter-debug-osmc-$DATE.deb
 	build_return=$?
 fi
 teardown_env "${1}"
