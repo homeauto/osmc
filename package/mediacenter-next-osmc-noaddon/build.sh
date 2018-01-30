@@ -468,6 +468,18 @@ then
 	$BUILD kodiplatform_DIR=$(pwd) CMAKE_PREFIX_PATH=/usr/osmc -C build/
 	if [ $? != 0 ]; then echo "Building binary addons failed" && exit 1; fi
 	popd
+# Widevine
+        echo "widevine"
+        mkdir widevine/
+        pushd widevine
+        handle_dep "wget" # We do not usually use wget in the build environment
+        wget http://odroidxu.leeharris.me.uk/xu3/chromium-widevine-1.4.8.823-2-armv7h.pkg.tar.xz               
+        tar xJf chromium-widevine-1.4.8.823-2-armv7h.pkg.tar.xz usr/lib/chromium/libwidevinecdm.so --strip-components=3
+        chmod 755 libwidevinecdm.so
+        mkdir -p ${out}/home/osmc/.kodi/cdm/
+        cp -ar libwidevinecdm.so ${out}/home/osmc/.kodi/cdm/
+        ln -fs /usr/lib/kodi/addons/inputstream.adaptive/libssd_wv.so ${out}/home/osmc/.kodi/cdm/libssd_wv.so
+       popd
         # Languages
         mkdir languages/
         pushd languages
