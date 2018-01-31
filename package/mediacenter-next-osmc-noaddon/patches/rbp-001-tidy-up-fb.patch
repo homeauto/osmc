@@ -19,7 +19,7 @@ index bbe501d..cbb3cfb 100644
  #include <cassert>
 +#include <stdlib.h>
  #ifdef TARGET_POSIX
- #include "linux/XTimeUtils.h"
+ #include "platform/linux/XTimeUtils.h"  
  #endif
 @@ -111,6 +112,20 @@ 
  

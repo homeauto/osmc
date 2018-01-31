@@ -10,12 +10,12 @@
     <samba>
        <clienttimeout>30</clienttimeout>
     </samba>
-    <gui>
-       <algorithmdirtyregions>1</algorithmdirtyregions>
-       <nofliptimeout>2</nofliptimeout>
-    </gui>
+    <cache>
+       <buffermode>1</buffermode>
+       <memorysize>524880000</memorysize>
+       <readfactor>5.0</readfactor>
+    </cache>
     <gamesgeneral>
        <enable>true</enable>
     </gamesgeneral>
 </advancedsettings>
-
